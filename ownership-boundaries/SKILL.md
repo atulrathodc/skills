@@ -4,7 +4,7 @@ description: Prevent concurrent agents from conflicting over shared files and sy
 allowed-tools: Read, Grep, Glob
 ---
 
-# Ownership
+# Ownership Boundaries
 
 Before parallel modification:
 

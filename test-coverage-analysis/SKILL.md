@@ -4,7 +4,7 @@ description: Determine whether important behavior is adequately tested.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Coverage Analysis
+# Test Coverage Analysis
 
 For changed behavior identify:
 
