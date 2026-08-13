@@ -1,18 +1,20 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: completion-gate
+description: Prevent the agent from declaring a task complete without sufficient verification.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Completion Gate
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Before completion:
+
+- requested behavior implemented
+- relevant files changed
+- tests executed
+- tests passed or failures explicitly explained
+- build/type checks completed when applicable
+- final diff inspected
+- no unintended changes
+- no unresolved critical errors
+
+If verification is incomplete, do not claim full completion.

@@ -1,18 +1,18 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
-allowed-tools: Read, Grep, Glob, Bash
+name: build-failure-recovery
+description: Diagnose compilation, bundling, and build failures systematically.
+allowed-tools: Bash, Read, Grep
 ---
 
-# Architecture Discovery
+# Build Failure Recovery
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+When the build fails:
+
+1. Capture the first meaningful error.
+2. Ignore downstream cascade errors initially.
+3. Locate the originating source.
+4. Inspect recent changes.
+5. Check dependency and toolchain compatibility.
+6. Fix the root cause.
+7. Re-run the smallest relevant build.
+8. Run the complete build when appropriate.

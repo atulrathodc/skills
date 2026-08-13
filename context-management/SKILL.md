@@ -1,18 +1,15 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
-allowed-tools: Read, Grep, Glob, Bash
+name: context-management
+description: Keep agent context focused and prevent unnecessary context growth.
+allowed-tools: Read, Grep, Glob
 ---
 
-# Architecture Discovery
+# Context Management
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+- Keep only task-relevant information in active context.
+- Prefer summaries for completed exploration.
+- Avoid repeatedly injecting the same file contents.
+- Reference previously discovered files instead of rereading them unnecessarily.
+- Preserve decisions, constraints, failures, and progress.
+- Compact when context becomes unnecessarily large.
+- Never discard information required to resume execution.

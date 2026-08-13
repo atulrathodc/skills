@@ -1,18 +1,24 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: security-review
+description: Check code changes for common security vulnerabilities.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Security Review
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Check for:
+
+- authentication bypass
+- authorization errors
+- injection
+- unsafe deserialization
+- secrets exposure
+- insecure file access
+- SSRF
+- XSS
+- CSRF
+- path traversal
+- sensitive data leakage
+- unsafe command execution
+
+Never print or commit credentials, tokens, private keys, or secrets.

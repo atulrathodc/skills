@@ -1,18 +1,23 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: resilience
+description: Review external calls and distributed operations for failure and recovery behavior.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Resilience
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+For external dependencies consider:
+
+- timeout
+- retry
+- backoff
+- cancellation
+- circuit breaking
+- idempotency
+- partial failure
+- fallback
+- observability
+
+Never add retries blindly.
+
+Retries must account for whether the operation is safe to repeat.

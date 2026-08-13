@@ -1,18 +1,23 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: performance-analysis
+description: Identify meaningful performance problems before optimizing code.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Performance Analysis
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Look for:
+
+- unnecessary repeated I/O
+- N+1 queries
+- excessive allocations
+- repeated parsing
+- unnecessary network calls
+- inefficient loops
+- unbounded collections
+- excessive logging
+- unnecessary serialization
+
+Do not optimize based solely on intuition.
+
+Prefer evidence from profiling, measurements, or clear complexity analysis.

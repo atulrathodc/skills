@@ -1,18 +1,22 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: progress-tracking
+description: Maintain explicit progress so interrupted tasks can resume efficiently.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Progress Tracking
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Track:
+
+- completed work
+- current work
+- remaining work
+- modified files
+- tests executed
+- failures
+- unresolved questions
+- next action
+
+Persist resumable state when supported.
+
+A resumed task must continue from the last meaningful progress point.

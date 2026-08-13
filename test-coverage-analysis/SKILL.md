@@ -1,18 +1,18 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: test-coverage-analysis
+description: Determine whether important behavior is adequately tested.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Coverage Analysis
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+For changed behavior identify:
+
+- happy path
+- invalid input
+- boundary conditions
+- error paths
+- state transitions
+- concurrency concerns
+
+Coverage percentage alone is not sufficient evidence of correctness.

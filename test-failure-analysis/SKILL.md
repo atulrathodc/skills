@@ -1,18 +1,24 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
-allowed-tools: Read, Grep, Glob, Bash
+name: test-failure-analysis
+description: Diagnose failing tests instead of blindly rerunning them.
+allowed-tools: Bash, Read, Grep
 ---
 
-# Architecture Discovery
+# Test Failure Analysis
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+When a test fails:
+
+- capture the exact failure
+- identify the failing assertion
+- inspect the stack trace
+- determine whether the failure is:
+  - implementation
+  - test
+  - environment
+  - dependency
+  - timing
+  - flaky behavior
+
+Fix the root cause.
+
+Do not repeatedly rerun an unchanged failing test without new evidence.

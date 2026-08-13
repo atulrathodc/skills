@@ -1,18 +1,17 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: regression-testing
+description: Add tests that prevent a fixed bug from returning.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Regression Testing
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+For a bug fix:
+
+1. Identify the failure condition.
+2. Reproduce it when practical.
+3. Add a focused test.
+4. Verify the test fails against the old behavior when possible.
+5. Implement the fix.
+6. Verify the test passes.
+7. Run related tests.

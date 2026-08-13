@@ -1,18 +1,23 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: concurrency-safety
+description: Review concurrent code for races, deadlocks, and unsafe shared state.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Concurrency Safety
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Check:
+
+- shared mutable state
+- race conditions
+- locking
+- deadlocks
+- ordering assumptions
+- async cancellation
+- thread safety
+- duplicate execution
+- idempotency
+
+Do not introduce concurrency merely for speed.
+
+Prefer deterministic behavior.

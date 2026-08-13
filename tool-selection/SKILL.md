@@ -1,18 +1,21 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
-allowed-tools: Read, Grep, Glob, Bash
+name: tool-selection
+description: Select the smallest and most appropriate tool for each operation.
+allowed-tools: Bash, Read, Grep, Glob
 ---
 
-# Architecture Discovery
+# Tool Selection
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Prefer:
+
+- targeted search over full repository scans
+- symbol search over reading unrelated files
+- focused reads over entire files
+- targeted tests over full suites
+- deterministic commands over exploratory shell loops
+
+Before using a tool ask:
+
+1. What information do I need?
+2. Which tool can obtain it most directly?
+3. What is the smallest operation that provides that information?

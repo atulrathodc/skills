@@ -1,18 +1,25 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
-allowed-tools: Read, Grep, Glob, Bash
+name: logging
+description: Maintain useful, structured, and safe application logging.
+allowed-tools: Read, Grep, Glob
 ---
 
-# Architecture Discovery
+# Logging
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Logs should help answer:
+
+- What happened?
+- Where?
+- Why?
+- What request or operation was involved?
+- Can the failure be correlated?
+
+Never log:
+
+- passwords
+- tokens
+- secrets
+- private keys
+- sensitive personal information
+
+Avoid noisy logs inside tight loops.

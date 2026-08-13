@@ -1,20 +1,20 @@
 ---
-name: dependency-tracing
-description: Trace code dependencies and references before modifying shared code.
-allowed-tools: Read, Grep, Glob
+name: dependency-management
+description: Safely add, remove, upgrade, and evaluate project dependencies.
+allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Dependency Tracing
+# Dependency Management
 
-Before changing a shared symbol:
+Before adding a dependency:
 
-- Find its definition.
-- Find direct callers.
-- Find implementations.
-- Find interfaces and types.
-- Find tests.
-- Find configuration references.
-- Find serialization/API consumers.
-- Check whether the symbol crosses module boundaries.
+- check whether an existing dependency already provides the capability
+- inspect package/build configuration
+- consider maintenance and compatibility
+- verify supported runtime versions
 
-Do not modify a shared API until its important consumers are understood.
+After changes:
+
+- update lockfiles when appropriate
+- run relevant tests
+- verify the build

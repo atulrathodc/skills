@@ -1,18 +1,19 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
-allowed-tools: Read, Grep, Glob, Bash
+name: ownership-boundaries
+description: Prevent concurrent agents from conflicting over shared files and symbols.
+allowed-tools: Read, Grep, Glob
 ---
 
-# Architecture Discovery
+# Ownership
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Before parallel modification:
+
+- assign file ownership
+- identify shared symbols
+- identify generated files
+- identify shared configuration
+- identify dependency conflicts
+
+Only one worker should own a file at a time unless the system supports safe patch merging.
+
+Merge changes only after verifying compatibility.

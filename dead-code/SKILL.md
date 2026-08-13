@@ -1,18 +1,18 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: dead-code
+description: Identify unused code safely before removing it.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Dead Code
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+Before removing code:
+
+- search references
+- check dynamic usage
+- check configuration references
+- check tests
+- check public API exposure
+- check generated-code relationships
+
+Only remove code when there is sufficient evidence that it is unused.

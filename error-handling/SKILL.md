@@ -1,18 +1,15 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: error-handling
+description: Design consistent and useful error handling without hiding failures.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Error Handling
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+- Preserve useful error context.
+- Handle errors at the appropriate boundary.
+- Do not silently swallow exceptions.
+- Do not use generic catches when specific handling is possible.
+- Preserve error semantics across layers.
+- Return appropriate API errors.
+- Log actionable information without secrets.

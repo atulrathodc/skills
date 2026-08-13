@@ -1,18 +1,17 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
+name: type-safety
+description: Improve type correctness without weakening existing type guarantees.
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# Architecture Discovery
+# Type Safety
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+- Prefer precise types.
+- Avoid unnecessary `any`.
+- Avoid unsafe casts.
+- Preserve nullability guarantees.
+- Reuse existing domain types.
+- Update affected tests.
+- Run the repository's type checker.
+
+Never silence a type error without understanding its cause.

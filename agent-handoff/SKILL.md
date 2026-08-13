@@ -1,18 +1,23 @@
 ---
-name: architecture-discovery
-description: Understand repository architecture before making cross-cutting changes.
-allowed-tools: Read, Grep, Glob, Bash
+name: agent-handoff
+description: Transfer work between planning, execution, review, and recovery agents.
+allowed-tools: Read, Grep, Glob
 ---
 
-# Architecture Discovery
+# Agent Handoff
 
-- Identify application entry points.
-- Identify major modules and boundaries.
-- Identify dependency direction.
-- Identify configuration and environment loading.
-- Identify persistence, APIs, messaging, and external integrations.
-- Identify shared utilities and infrastructure.
-- Identify tests associated with each major component.
-- Trace the execution path relevant to the requested change.
-- Prefer existing architecture over introducing new patterns.
-- Document important architectural constraints before implementation.
+A handoff should contain:
+
+- objective
+- repository state
+- discovered files
+- relevant symbols
+- decisions
+- constraints
+- completed work
+- remaining work
+- known failures
+- verification status
+- recommended next action
+
+Do not make the receiving agent rediscover information already established.
