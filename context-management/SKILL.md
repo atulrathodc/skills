@@ -6,6 +6,7 @@ allowed-tools: Read, Grep, Glob
 
 # Context Management
 
+- Prefer a small, relevant code and context over a large historical context.
 - Keep only task-relevant information in active context.
 - Prefer summaries for completed exploration.
 - Avoid repeatedly injecting the same file contents.
