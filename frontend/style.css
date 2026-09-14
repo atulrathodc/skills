@@ -1,0 +1,63 @@
+:root {
+  --duration-fast: 120ms;
+  --duration-slow: 320ms;
+  --ease-enter: cubic-bezier(0, 0, .2, 1);
+  --ease-pop: cubic-bezier(.34, 1.56, .64, 1);
+  --green: #44aa88;
+  --ink: #14201c;
+  --accent: #0b5d45;
+  --accent-dark: #0a4a37;
+  --surface: #fff;
+  --line: #dde5e1;
+  --muted: #4c5b55;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  margin: 0 auto; max-width: 780px; padding: 32px 20px 64px;
+  color: var(--ink); background: #f7faf8;
+}
+
+h1 { font-size: 22px; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 28px; }
+h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 32px 0 12px; }
+code { font-size: 12.5px; color: var(--accent); }
+.status { color: var(--muted); margin: 0 0 12px; }
+
+.skills { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.skills li {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+  animation: enter var(--duration-slow) var(--ease-enter) both; /* css-animation: keyframes + fill-mode */
+}
+@keyframes enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.kind {
+  display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--accent); background: #d9f2e8; border-radius: 999px; padding: 2px 8px; margin-right: 8px;
+}
+.summary { color: #40504a; margin: 4px 0 0; }
+
+.stage { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.box { width: 56px; height: 56px; border-radius: 8px; background: var(--green); }
+
+/* Explicit component class (plus the element selector) so controls are never unstyled. */
+.btn {
+  font: inherit; padding: 8px 14px; border-radius: 8px;
+  border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer;
+  transition: background var(--duration-fast) ease-out; /* css-animation §7: cheap property only */
+}
+.btn:hover { background: var(--accent-dark); }
+.btn:active { transform: scale(.97); }                              /* motion-design §7 micro-interaction */
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.sprite { image-rendering: pixelated; width: 64px; height: 64px; border-radius: 8px; background: #eef4f1; }
+
+/* motion-design §10 / accessibility: reduce movement, keep the state change and the feedback. */
+@media (prefers-reduced-motion: reduce) {
+  .skills li { animation-duration: .01ms !important; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}

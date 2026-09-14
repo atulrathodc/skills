@@ -1,0 +1,11 @@
+{
+  "name": "animation-playground",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Runnable demo for this repo's animation skills (css-animation, web-animations-api, sprite-animation, motion-design, lottie-animation). Frontend UI + JSON API.",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js"
+  }
+}

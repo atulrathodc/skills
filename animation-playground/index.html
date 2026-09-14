@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animation Playground — various types of animation support</title>
+<style>
+  :root {
+    --duration-fast: 120ms; --duration-slow: 320ms;
+    --ease-enter: cubic-bezier(0, 0, .2, 1);
+    --ease-pop: cubic-bezier(.34, 1.56, .64, 1);
+  }
+  * { box-sizing: border-box; }
+  body { font: 15px/1.5 system-ui, -apple-system, sans-serif; margin: 0 auto; max-width: 780px; padding: 32px 20px 64px; color: #14201c; background: #f7faf8; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: #4c5b55; margin: 0 0 28px; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: #4c5b55; margin: 32px 0 12px; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  li { background: #fff; border: 1px solid #dde5e1; border-radius: 10px; padding: 12px 14px;
+       animation: enter var(--duration-slow) var(--ease-enter) both; }
+  @keyframes enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .kind { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+          color: #0b5d45; background: #d9f2e8; border-radius: 999px; padding: 2px 8px; margin-right: 8px; }
+  code { font-size: 12.5px; color: #0b5d45; }
+  .summary { color: #40504a; margin: 4px 0 0; }
+
+  .stage { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .box { width: 56px; height: 56px; border-radius: 8px; background: #44aa88; }
+  button, .btn { font: inherit; padding: 8px 14px; border-radius: 8px; border: 1px solid #0b5d45; background: #0b5d45; color: #fff; cursor: pointer; }
+  button:hover, .btn:hover { background: #0a4a37; }
+  button:active, .btn:active { transform: scale(.97); }
+  button:focus-visible, .btn:focus-visible, [tabindex]:focus-visible { outline: 3px solid #0b5d45; outline-offset: 2px; }
+  #sprite { image-rendering: pixelated; width: 64px; height: 64px; border-radius: 8px; background: #eef4f1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* motion-design §10: reduce movement, keep the state change and feedback */
+    li { animation-duration: .01ms !important; }
+    * { transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+  <h1>Animation Playground</h1>
+  <p class="sub">Runnable companion to this repo's animation skills. The list below is fetched from the API at <code>/api/animations</code>.</p>
+
+  <h2>Animation skills (from API)</h2>
+  <p id="status" role="status" aria-live="polite">Loading…</p>
+  <ul id="skills"></ul>
+
+  <h2>Live: css-animation + motion-design</h2>
+  <div class="stage">
+    <div class="box" id="popbox"></div>
+    <button id="pop" class="btn" type="button">Replay pop (overshoot easing)</button>
+  </div>
+
+  <h2>Live: web-animations-api</h2>
+  <div class="stage">
+    <div class="box" id="wabox" style="opacity:.2"></div>
+    <button id="run" class="btn" type="button">Run element.animate()</button>
+  </div>
+
+  <h2>Live: sprite-animation</h2>
+  <div class="stage">
+    <canvas id="sprite" width="16" height="16" aria-label="Four-frame sprite animation cycling through colour frames" role="img"></canvas>
+    <span>4-frame atlas, 120 ms/frame, advanced by elapsed time — not by frame count.</span>
+  </div>
+
+<script>
+  // ---------- frontend (UI): render the API payload ----------
+  const statusEl = document.getElementById('status');
+  const listEl = document.getElementById('skills');
+  function render(items) {
+    listEl.replaceChildren();
+    for (const [i, a] of items.entries()) {
+      const li = document.createElement('li');
+      li.style.animationDelay = (i * 40) + 'ms';                 // motion-design §5 stagger, capped by list size
+      const badge = document.createElement('span');
+      badge.className = 'kind'; badge.textContent = a.kind;
+      const code = document.createElement('code'); code.textContent = a.name;
+      const p = document.createElement('p'); p.className = 'summary'; p.textContent = a.summary;
+      li.append(badge, code, p);
+      listEl.append(li);
+    }
+    statusEl.textContent = items.length + ' animation skills loaded.';
+    window.__rendered = items.length;
+  }
+
+  fetch('/api/animations')
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })  // html5-apis §9: check r.ok
+    .then(d => { window.__api = d; render(d.animations); })
+    .catch(err => { statusEl.textContent = 'Failed to load animations: ' + err.message; });
+
+  // ---------- css-animation: replay a keyframe animation ----------
+  const popbox = document.getElementById('popbox');
+  document.getElementById('pop').addEventListener('click', () => {
+    popbox.style.animation = 'none';
+    void popbox.offsetWidth;                       // force reflow so the animation restarts
+    popbox.style.animation = 'pop var(--duration-slow) var(--ease-pop) forwards';
+  });
+  const popStyle = document.createElement('style');
+  popStyle.textContent = '@keyframes pop { from { transform: scale(.6); } to { transform: scale(1); } }';
+  document.head.append(popStyle);
+
+  // ---------- web-animations-api: element.animate + finished ----------
+  const wabox = document.getElementById('wabox');
+  document.getElementById('run').addEventListener('click', () => {
+    for (const a of wabox.getAnimations()) a.cancel();          // web-animations-api §7: no stacking
+    const anim = wabox.animate([{ opacity: .2 }, { opacity: 1 }],
+      { duration: 250, easing: 'ease-out', fill: 'forwards' });
+    window.__wa = anim;
+  });
+
+  // ---------- sprite-animation: atlas + accumulator timing ----------
+  const COLS = 4, FW = 16, FH = 16;
+  const sheet = document.createElement('canvas');
+  sheet.width = COLS * FW; sheet.height = FH;
+  const sctx = sheet.getContext('2d');
+  ['#ff0000', '#00ff00', '#0000ff', '#ffff00'].forEach((c, i) => { sctx.fillStyle = c; sctx.fillRect(i * FW, 0, FW, FH); });
+
+  const canvas = document.getElementById('sprite');
+  const ctx = canvas.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+
+  const MS_PER_FRAME = 120, FRAME_COUNT = COLS;
+  const frameRect = i => ({ sx: (i % COLS) * FW, sy: Math.floor(i / COLS) * FH, sw: FW, sh: FH });
+  function drawFrame(i) {
+    const { sx, sy, sw, sh } = frameRect(i);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(sheet, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+    window.__frame = i; window.__rect = { sx, sy, sw, sh };
+  }
+  let frame = 0, accum = 0, last = performance.now();
+  function step(now) {
+    const dt = Math.min(now - last, 250);
+    last = now; accum += dt;
+    while (accum >= MS_PER_FRAME) { frame = (frame + 1) % FRAME_COUNT; accum -= MS_PER_FRAME; }
+    drawFrame(frame);
+    requestAnimationFrame(step);
+  }
+  drawFrame(0);
+  requestAnimationFrame(step);
+</script>
+</body>
+</html>
