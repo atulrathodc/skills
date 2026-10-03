@@ -21,6 +21,12 @@ Swift/SwiftUI/UIKit specifics for getting an app to build, launch, and behave on
 ## Related skills
 
 - `mobile-app-debugging` — crash triage, symbolication, release-vs-debug failures.
+- `ios-verification` — proving the app you just built actually runs and works.
+- `swiftui` — the UI framework: state ownership, view identity, navigation, layout.
+- `ios-testing` — XCTest, Swift Testing, and XCUITest for the app you just built.
+- `ios-background-and-lifecycle` — `scenePhase`, `BGTaskScheduler`, push, state restoration.
+- `ios-performance` — Instruments, hangs, hitches, leaks, launch time on a real device.
+- `macos-app` — the same Xcode and Swift, but a different app model, sandbox, and signing path.
 - `mobile-store-release` — App Store submission, provisioning, and review rules.
 - `react-native-app` / `flutter-app` — when the iOS build is really driven by a cross-platform toolchain.
 - `dependency-install-recovery` — when `pod install` or SPM resolution fails.
