@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Technology Adoption — decision console</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skiplink" href="#main">Skip to content</a>
+
+<header class="page-head">
+  <h1>New Technology Adoption — decision console</h1>
+  <p class="sub">
+    Runnable companion to the <code>new-technology-adoption</code> skill. Answer the 8 evidence
+    checks, then get an <strong>adopt / trial / hold / reject</strong> verdict with a written rationale.
+    A doc-only read is not validation — the spike check has to have actually run here.
+  </p>
+</header>
+
+<main id="main">
+  <section class="card" aria-labelledby="candidate-heading">
+    <h2 id="candidate-heading">1. Candidate</h2>
+    <div class="fields">
+      <div class="field">
+        <label for="tech">Technology under evaluation</label>
+        <input id="tech" class="control control--text" name="tech" type="text" required autocomplete="off"
+               placeholder="e.g. rust-axum, sveltekit, bun" aria-describedby="tech-hint">
+        <p class="hint" id="tech-hint">Language, framework, library, runtime, platform or protocol.</p>
+      </div>
+
+      <div class="field">
+        <label for="license">License model</label>
+        <select id="license" class="control control--select" name="license">
+          <option value="permissive">Permissive (MIT / Apache-2.0 / BSD)</option>
+          <option value="copyleft">Copyleft (GPL / LGPL)</option>
+          <option value="source-available">Source-available (BUSL / SSPL / AGPL)</option>
+          <option value="none">None / unstated</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="sourceUrl">Dated source (docs, repo, release notes)</label>
+        <input id="sourceUrl" class="control control--url" name="sourceUrl" type="url" autocomplete="off"
+               placeholder="https://example.com/releases" aria-describedby="sourceUrl-hint">
+        <p class="hint" id="sourceUrl-hint">The URL you actually checked. It is echoed back as a dated citation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="checks-heading">
+    <h2 id="checks-heading">2. Evidence checks</h2>
+    <form id="console" novalidate>
+      <fieldset class="checks-fieldset">
+        <legend>Mark every check you can back with a source, a number, or a command that ran</legend>
+        <p class="hint" id="checks-hint">Loaded from <code>/api/checks</code>.</p>
+        <ul class="checklist" id="checks"></ul>
+      </fieldset>
+
+      <div class="actions">
+        <button id="evaluate" class="btn btn--primary" type="submit">Evaluate fit</button>
+        <button id="probe" class="btn" type="button">Run spike probe</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="result-heading">
+    <h2 id="result-heading">3. Decision</h2>
+    <p id="status" class="status" role="status" aria-live="polite">Loading evidence checks…</p>
+
+    <output id="result" class="result" for="evaluate" hidden></output>
+  </section>
+</main>
+
+<footer class="page-foot">
+  <p>Scores are evidence completeness, not a substitute for the recorded decision: pin an exact version, write the ADR, note the rollback path.</p>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

@@ -47,6 +47,9 @@ Jev is TypeSafe AI's first **System One** model: you send application **state** 
 
 ## Related skills
 
+- `jev-ai-integration` — putting Jev in a real system: one decide boundary, key placement, caching, and the fallback path.
+- `decision-model-evaluation` — choosing the probability threshold and proving accuracy before gating on it.
+- `openai-dots` — OpenAI's Decisions API (GPT-6 Luna) is the direct competitor; it shipped in limited preview with no public docs.
 - `function-calling` — Jev is the decision primitive behind tool/branch selection.
 - `tool-use` — using the typed answer to pick and invoke the right tool.
 - `context-management` — the target of the `compaction` mode.

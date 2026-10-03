@@ -1,0 +1,9 @@
+{
+  "name": "new-technology-adoption",
+  "private": true,
+  "type": "module",
+  "description": "Runnable decision-console UI for the new-technology-adoption skill.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
