@@ -8,7 +8,9 @@ allowed-tools: Bash, Read, Grep, Glob, Edit, Write
 
 React/Vite specifics that trip up agents wiring a frontend to a backend.
 
-1. **Install** — `npm install` in the frontend dir (Vite scaffold: `npm create vite@latest . -- --template react`). Never hand-roll node_modules.
+1. **Scaffold / Install** — For greenfield projects, scaffold via official Vite CLI non-interactively:
+   `npx --yes create-vite@latest . --template react-ts --no-interactive --overwrite && npm install`
+   Never hand-roll node_modules or hand-craft package.json/tsconfig.json/vite.config.ts.
 2. **Scripts** — `npm run dev` (dev server), `npm run build` (production build to `dist/`). Read `package.json` first.
 3. **Dev proxy** — in `vite.config.js` add `server.proxy` mapping the API base to the backend, so the frontend can call `/api/...` without CORS in dev:
    ```js

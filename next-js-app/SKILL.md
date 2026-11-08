@@ -8,6 +8,9 @@ allowed-tools: Bash, Read, Grep, Glob, Edit, Write
 
 Next.js specifics that trip up agents.
 
+0. **Greenfield Scaffolding — ALWAYS use the official generator.** When creating a new Next.js app, NEVER write 20 configuration and boilerplate files from memory file-by-file. Always invoke the canonical CLI via Bash:
+   `npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias "@/*" --use-npm --disable-git --yes`
+   Then verify `npm run build` passes before adding custom components or pages.
 1. **Two routers — know which one the app uses.** `app/` directory (App Router, server components by default) vs `pages/` (Pages Router). Files: `app/page.tsx`/`app/layout.tsx` or `pages/index.tsx`. Grep for `"use client"` and `useRouter`/`getServerSideProps` to tell.
 2. **Scripts** — `npm run dev` (dev server), `npm run build`, `npm start` (serves the production build — must build first). Read `package.json` + `next.config.*`.
 3. **Server vs client components (App Router)** — files without `"use client"` are SERVER components: no `useState`/`useEffect`/event handlers there. Add `"use client"` at the top of a component that needs browser APIs.
