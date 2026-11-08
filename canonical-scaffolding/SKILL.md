@@ -29,6 +29,18 @@ Always invoke the battle-tested official CLI generator via Bash first.
 | **Django** | `django-admin startproject config . \|\| python3 -m django startproject config .` | `python3 manage.py check` |
 | **Flask** | Scaffold `app.py` + `requirements.txt` (`flask`) | `python3 -m py_compile app.py` |
 | **Spring Boot** | `curl -s https://start.spring.io/starter.zip -d dependencies=web,actuator -d type=maven-project -d language=java -o starter.zip && unzip -qo starter.zip && rm -f starter.zip` | `./mvnw compile -q \|\| mvn compile -q` |
+| **Hono** (Node / Workers) | `npm create hono@latest . -- --template nodejs && npm install` | `npm run build \|\| node -c src/index.ts` |
+| **Remix / React Router** | `npx --yes create-remix@latest . --template remix-run/remix/templates/remix --no-install && npm install` | `npm run build` |
+| **Ruby on Rails** | `rails new . --api --database=sqlite3 --skip-git` | `bin/rails db:migrate:status` |
+| **Laravel** (PHP) | `composer create-project laravel/laravel .` | `php artisan route:list` |
+| **Gin** (Go) | `go mod init <name> && go get -u github.com/gin-gonic/gin` | `go build ./...` |
+| **Fiber** (Go) | `go mod init <name> && go get github.com/gofiber/fiber/v2` | `go build ./...` |
+| **Tauri** (Rust + Web) | `npm create tauri-app@latest . -- --template react-ts --manager npm` | `cargo check --manifest-path src-tauri/Cargo.toml` |
+| **Electron** | `npm init -y && npm install -D electron` | `node -c main.js` |
+| **Expo** (React Native) | `npx --yes create-expo-app@latest . --template blank-typescript --no-install && npm install` | `npx tsc --noEmit` |
+| **ASP.NET Core** (.NET / C#) | `dotnet new webapi -n <name> -o .` | `dotnet build` |
+| **Ktor** (Kotlin) | Gradle setup with `io.ktor` server plugins | `./gradlew build` |
+| **Qwik** | `npm create qwik@latest . -- --template basic && npm install` | `npm run build` |
 | **Rust** | `cargo init --name <name>` | `cargo build` |
 | **Go** | `go mod init <name>` | `go build ./...` |
 
