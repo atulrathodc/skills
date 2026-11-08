@@ -28,7 +28,12 @@ Always invoke the battle-tested official CLI generator via Bash first.
 | **FastAPI** | Scaffold `main.py` + `requirements.txt` (`fastapi`, `uvicorn[standard]`) | `python3 -m py_compile main.py` |
 | **Django** | `django-admin startproject config . \|\| python3 -m django startproject config .` | `python3 manage.py check` |
 | **Flask** | Scaffold `app.py` + `requirements.txt` (`flask`) | `python3 -m py_compile app.py` |
-| **Spring Boot** | `curl -s https://start.spring.io/starter.zip -d dependencies=web,actuator -d type=maven-project -d language=java -o starter.zip && unzip -qo starter.zip && rm -f starter.zip` | `./mvnw compile -q \|\| mvn compile -q` |
+| **Spring Boot** (Java) | `curl -s https://start.spring.io/starter.zip -d dependencies=web,actuator -d type=maven-project -d language=java -o starter.zip && unzip -qo starter.zip && rm -f starter.zip` | `./mvnw compile -q \|\| mvn compile -q` |
+| **Quarkus** (Java) | `curl -s "https://code.quarkus.io/api/download?g=org.acme&a=code-with-quarkus&e=resteasy-reactive,resteasy-reactive-jackson" -o quarkus.zip && unzip -qo quarkus.zip && (cp -rn code-with-quarkus/* . 2>/dev/null \|\| cp -r code-with-quarkus/* .) && rm -rf code-with-quarkus quarkus.zip` | `./mvnw compile -q \|\| mvn compile -q` |
+| **Micronaut** (Java) | `curl -s "https://launch.micronaut.io/create/default/demo?lang=JAVA&build=MAVEN&features=http-client" -o micronaut.zip && unzip -qo micronaut.zip && (cp -rn demo/* . 2>/dev/null \|\| cp -r demo/* .) && rm -rf demo micronaut.zip` | `./mvnw compile -q \|\| mvn compile -q` |
+| **Vert.x** (Java) | `curl -s "https://start.vertx.io/starter.zip?dependencies=vertx-web,vertx-unit" -o starter.zip && unzip -qo starter.zip && rm -f starter.zip` | `./mvnw compile -q \|\| mvn compile -q` |
+| **Dropwizard** (Java) | Minimal `pom.xml` (`dropwizard-core`) + Application / Configuration classes | `mvn compile -q` |
+| **Helidon** (Java) | `mvn archetype:generate -B -DarchetypeGroupId=io.helidon.archetypes -DarchetypeArtifactId=helidon-quickstart-se -DarchetypeVersion=4.0.7 -DgroupId=com.example -DartifactId=quickstart-se -Dpackage=com.example` | `mvn compile -q` |
 | **Hono** (Node / Workers) | `npm create hono@latest . -- --template nodejs && npm install` | `npm run build \|\| node -c src/index.ts` |
 | **Remix / React Router** | `npx --yes create-remix@latest . --template remix-run/remix/templates/remix --no-install && npm install` | `npm run build` |
 | **Ruby on Rails** | `rails new . --api --database=sqlite3 --skip-git` | `bin/rails db:migrate:status` |
