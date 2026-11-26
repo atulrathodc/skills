@@ -26,6 +26,6 @@ On Kubernetes the workload spec is the deployment: a pod that starts is not a po
 - `docker-container` — building the exact image the Deployment references.
 - `runtime-crash-recovery` — why the process itself dies on boot.
 - `observability` — logs/metrics that make a rollout failure visible.
-- `secret-management` — getting credentials into the cluster safely.
+- `env-secrets-management` — getting credentials into the cluster safely.
 
 ───

@@ -24,5 +24,5 @@ IaC turns a one-line typo into a deleted production database if applied careless
 - `aws-deployment` — AWS primitives, IAM, and service boundaries.
 - `gcp-azure-deployment` — GCP and Azure managed services.
 - `kubernetes-deployment` — cluster workloads managed alongside IaC.
-- `ci-cd-pipelines` — running plan-on-PR and gated apply-on-merge with OIDC.
-- `secret-management` — keeping cloud credentials and runtime secrets out of state.
+- `ci-cd-pipeline` — running plan-on-PR and gated apply-on-merge with OIDC.
+- `env-secrets-management` — keeping cloud credentials and runtime secrets out of state.

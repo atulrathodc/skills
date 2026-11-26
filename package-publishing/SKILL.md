@@ -21,6 +21,6 @@ Published package versions are immutable on npm, PyPI, and crates.io — you can
 
 - `monorepo-management` — converting `workspace:*` refs and coordinating multi-package releases.
 - `cli-app` — verifying `bin` entrypoints, shebangs, and cross-platform CLI execution.
-- `ci-cd-pipelines` — automating OIDC trusted publishing on git tags.
+- `ci-cd-pipeline` — automating OIDC trusted publishing on git tags.
 - `dependency-management` — auditing transitive dependencies before release.
 - `type-safety` — emitting clean, strict `.d.ts` declarations.

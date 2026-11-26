@@ -35,6 +35,6 @@ distribution path are all different, and the failure modes ("it's damaged and ca
 - `ios-app` — the iOS build/run/signing counterpart; the two share Xcode and Swift but not their app models.
 - `swiftui` — the UI framework both platforms use, and where they diverge.
 - `mobile-store-release` — store submission mechanics, review rules, and versioning.
-- `secret-management` — Developer ID certificates, notarytool profiles, and signing keys.
+- `env-secrets-management` — Developer ID certificates, notarytool profiles, and signing keys.
 - `ci-cd-troubleshooting` — automating signed, notarized builds in a pipeline.
 - `runtime-verification` — proving the launched app actually does the thing.

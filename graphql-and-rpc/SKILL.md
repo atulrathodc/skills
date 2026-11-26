@@ -23,6 +23,6 @@ GraphQL, tRPC, and gRPC trade REST's URL-centric conventions for typed schemas a
 
 - `api-design` — general API contract, pagination, and error design principles.
 - `authorization-and-multitenancy` — per-resolver and per-procedure access control.
-- `database-performance` — query plans, indexes, and N+1 detection.
+- `sql-query-optimization` — query plans, indexes, and N+1 detection.
 - `monorepo-management` — sharing tRPC routers and generated types across workspaces.
 - `type-safety` — end-to-end schema-driven typing.

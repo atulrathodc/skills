@@ -40,5 +40,5 @@ Announced at DevDay on **2026-09-29**: always-on agents that keep working betwee
 - `computer-use` / `browser-agents` — the capability class a dot wraps, and its managed-sandbox sibling.
 - `jev-ai` / `jev-ai-integration` — the decision-model alternative to the Decisions API.
 - `agent-engineering` / `agent-memory` — bounded loops, memory design, and why opaque memory matters.
-- `prompt-injection` / `llm-security` / `secret-management` — connected apps, write actions, and what must stay out of reach.
+- `prompt-injection` / `llm-security` / `env-secrets-management` — connected apps, write actions, and what must stay out of reach.
 - `new-technology-adoption` — dating and sourcing claims about a surface this young.

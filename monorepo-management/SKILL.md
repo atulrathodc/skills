@@ -23,6 +23,6 @@ Monorepos fail slowly through phantom dependencies, broken build order, and 20-m
 
 - `dependency-management` — lockfiles, version pinning, and upgrade hygiene.
 - `package-publishing` — versioning and publishing workspace packages with Changesets or SemVer.
-- `ci-cd-pipelines` — caching and affected-only matrix workflows in CI.
+- `ci-cd-pipeline` — caching and affected-only matrix workflows in CI.
 - `build-failure-recovery` — diagnosing broken builds and stale caches.
 - `type-safety` — TypeScript project references and strict compiler configs.

@@ -24,7 +24,7 @@ A PaaS runs your build on its own terms — the build pack, the port, and the di
 - `deployment-verification` — proving the deployed instance serves.
 - `docker-container` — when the PaaS consumes your Dockerfile instead of a buildpack.
 - `production-process` — process supervision semantics these platforms replace.
-- `database-migration` — the migration that belongs in the release phase.
+- `database-migrations` — the migration that belongs in the release phase.
 - `background-jobs` — moving cron/queue work off the web instance.
 
 ───

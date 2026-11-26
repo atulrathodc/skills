@@ -22,5 +22,5 @@ A successful build is not a shipped app. Stores reject, OTA updates skip silentl
 - `mobile-store-release` — the store/signing rules that apply to any mobile stack.
 - `react-native-verification` — proving the shipped binary actually runs.
 - `mobile-app-debugging` — release-only crashes and symbolication.
-- `secret-management` — handling signing material and API keys.
+- `env-secrets-management` — handling signing material and API keys.
 - `ci-cd-troubleshooting` — when the build pipeline, not the app, is broken.

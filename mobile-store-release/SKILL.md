@@ -23,5 +23,5 @@ Stores enforce rules that have nothing to do with whether your code works. Most 
 
 - `react-native-deployment` / `flutter-app` / `ios-app` / `android-app` — the build side of each stack.
 - `mobile-app-debugging` — reading the crashes that come back from production.
-- `secret-management` — storing signing material and store credentials.
+- `env-secrets-management` — storing signing material and store credentials.
 - `ci-cd-troubleshooting` — automating builds and submissions.

@@ -14,4 +14,4 @@ AngularJS (1.x) is a DIFFERENT framework from Angular (2+). Spot which one the a
 4. **Directives** — `ng-if`/`ng-repeat`/`ng-show`/custom directives. A common bug: using Angular 2+ syntax (`*ngIf`) in an AngularJS template — it silently does nothing.
 5. **Two-way binding** — `ng-model` mutates `$scope` live. A "state doesn't update" bug is often `ng-model` on the wrong element or a missing `$scope.$apply` after an async callback outside Angular's digest (use `$timeout`/`$http` instead of raw callbacks).
 6. **Build/run** — usually no build step; serve the static files (see `make-it-run`). Fix the browser console error first (see `ui-verification`).
-7. **Minimal changes** — legacy apps are fragile; change one thing, verify it still loads (see `safe-refactoring`, `minimal-change`).
+7. **Minimal changes** — legacy apps are fragile; change one thing, verify it still loads (see `systematic-refactoring`, `minimal-change`).

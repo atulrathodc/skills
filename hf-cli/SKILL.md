@@ -64,4 +64,4 @@ Install: `curl -LsSf https://hf.co/cli/install.sh | bash -s`, then check `hf ver
 - `model-registry` — versioning published artifacts.
 - `dataset-versioning` — dataset revisions and reproducibility.
 - `llm-inference` / `vllm` — serving what you downloaded.
-- `secret-management` — keeping `HF_TOKEN` out of history and logs.
+- `env-secrets-management` — keeping `HF_TOKEN` out of history and logs.

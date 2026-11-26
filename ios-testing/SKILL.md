@@ -33,5 +33,5 @@ app is broken. Unit tests prove logic; only a UI test proves the app works.
 - `ios-app` — building, installing, and launching the app the tests drive.
 - `mobile-app-debugging` — when a failing test and a failing device disagree.
 - `ios-performance` — `XCTMetric`/signpost-based performance regression tests.
-- `test-driven-development` / `regression-testing` / `test-coverage-analysis` — the general practice this specializes.
+- `test-driven-development` / `regression-guardrails` / `test-coverage-analysis` — the general practice this specializes.
 - `react-native-testing` — the cross-platform equivalent, if the app is not native.

@@ -9,7 +9,7 @@ allowed-tools: Bash, Read, Grep, Glob, Edit, Write
 `jev-ai` covers what Jev is. This covers how to put it in a real system without introducing a new class of outage. A decision model fails quietly — it returns a confident-looking answer, not an error.
 
 1. **Put the decision behind ONE boundary** — a single `decideSomething(state)` function (or a thin internal service) that every caller goes through. When the schema, threshold, or vendor changes, you change one place instead of hunting scattered calls. Never inline `client.decide(...)` at call sites.
-2. **The API key never reaches a client** — a mobile or web app cannot hold a `jev_…` key; anything shipped in a bundle is public. Proxy through your backend (the app calls your endpoint, your server calls Jev) and keep the key in the server environment or a secret manager (see `secret-management`). This is non-negotiable for React Native, Flutter, and any store-distributed app.
+2. **The API key never reaches a client** — a mobile or web app cannot hold a `jev_…` key; anything shipped in a bundle is public. Proxy through your backend (the app calls your endpoint, your server calls Jev) and keep the key in the server environment or a secret manager (see `env-secrets-management`). This is non-negotiable for React Native, Flutter, and any store-distributed app.
 3. **Design the question set, not the prompt** — choices must be exhaustive AND mutually exclusive, and every decision gets an explicit abstention answer (`unknown`, `needs_review`, `escalate`). Without an escape hatch the model is forced to pick a wrong-but-valid label on inputs that fit none of them.
 4. **Keep `state` minimal and purposeful** — send the fields that actually bear on the decision, not the whole record. Extra context degrades accuracy; pre-process images/audio/binary into text or typed fields before sending.
 5. **Set a latency budget and honor it** — Jev returns in roughly 70–500 ms, so it can sit on a request path — but not in a per-item loop. Batch many small decisions (tagging/filtering N items) into one request instead of N calls.
@@ -24,5 +24,5 @@ allowed-tools: Bash, Read, Grep, Glob, Edit, Write
 - `jev-ai` — what the model is, the call shape, and the modes (`compaction`, `router`).
 - `decision-model-evaluation` — picking the threshold and proving the accuracy before you gate on it.
 - `function-calling` / `tool-use` — using a typed verdict to select and invoke a tool or branch.
-- `secret-management` / `prompt-injection` — key placement and untrusted `state`.
+- `env-secrets-management` / `prompt-injection` — key placement and untrusted `state`.
 - `resilience` / `error-handling` — the fallback path when the decision service is unavailable.

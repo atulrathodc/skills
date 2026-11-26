@@ -26,6 +26,6 @@ Cloud Run and App Service are managed container runtimes: they inject a port and
 - `docker-container` — the image both runtimes execute.
 - `configuration-loading` — PORT/env-var contract and per-environment settings.
 - `ci-cd-troubleshooting` — when Cloud Build or the pipeline fails.
-- `secret-management` — Secret Manager / Key Vault instead of env-var literals.
+- `env-secrets-management` — Secret Manager / Key Vault instead of env-var literals.
 
 ───

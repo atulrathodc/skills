@@ -20,6 +20,6 @@ Two different jobs. Conflating them is why suites go green while the app is brok
 ## Related skills
 
 - `react-native-verification` — the runtime proof a test suite cannot provide.
-- `test-driven-development` / `test-coverage-analysis` / `regression-testing` — general practice this skill specializes.
+- `test-driven-development` / `test-coverage-analysis` / `regression-guardrails` — general practice this skill specializes.
 - `mobile-app-debugging` — when a failing test and a failing device disagree.
 - `react-native-performance` — perf regressions, which tests rarely catch.

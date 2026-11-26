@@ -17,5 +17,5 @@ The app behaves differently than expected? Check what config it actually loaded,
    - The app uses `process.env.PORT` but you set `PORT` after starting → env is read at startup; restart to pick it up.
    - `.env` not loaded → the runner doesn't load it; pass it (`node --env-file=.env` / `python-dotenv` / `set -a; source .env`).
    - Spring can't resolve a property → missing key or wrong profile; the startup log names it (see `startup-failure-recovery`).
-4. **Secrets** — read tokens/keys from env, never source (see `secret-management`).
+4. **Secrets** — read tokens/keys from env, never source (see `env-secrets-management`).
 5. **Verify** — confirm the app RUNS with the intended value (log it once or check the behavior), not just that the config file "looks right".

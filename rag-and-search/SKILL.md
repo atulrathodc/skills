@@ -22,6 +22,6 @@ Most "bad RAG answers" are retrieval failures, not LLM failures. Fix chunking, h
 
 - `llm-app-integration` — streaming, structured outputs, and prompt caching for the generation step.
 - `authorization-and-multitenancy` — enforcing tenant and document-level ACLs on search indexes.
-- `database-performance` — tuning Postgres `pgvector`/GIN indexes and SQLite FTS5 queries.
+- `sql-query-optimization` — tuning Postgres `pgvector`/GIN indexes and SQLite FTS5 queries.
 - `hallucination-evaluation` — measuring groundedness and unsupported claims in generated answers.
 - `long-context` — deciding when full-document context beats chunked RAG.

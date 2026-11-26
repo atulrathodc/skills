@@ -25,6 +25,6 @@ Netlify and Cloudflare Pages deploy the build FOLDER — so the two things that 
 - `static-frontend` — the plain-HTML/CSS/JS output these hosts consume.
 - `astro-app` — static-vs-SSR output differences that change the publish dir.
 - `caching-strategies` — Cache-Control and CDN invalidation done right.
-- `secret-management` — keeping build-time and runtime secrets apart.
+- `env-secrets-management` — keeping build-time and runtime secrets apart.
 
 ───

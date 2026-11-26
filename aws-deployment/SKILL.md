@@ -25,7 +25,7 @@ AWS is a bag of primitives, not a platform: you assemble the network path yourse
 - `deployment-verification` — proving the deployed endpoint serves the new build.
 - `docker-container` — the image ECS/Fargate runs.
 - `serverless-edge-deployment` — Lambda/API Gateway specifics for on-demand endpoints.
-- `database-migration` — running schema changes as a controlled deploy step.
-- `secret-management` — SSM/Secrets Manager over plaintext env vars.
+- `database-migrations` — running schema changes as a controlled deploy step.
+- `env-secrets-management` — SSM/Secrets Manager over plaintext env vars.
 
 ───

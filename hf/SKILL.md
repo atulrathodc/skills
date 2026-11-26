@@ -41,4 +41,4 @@ The Hub is the default source of open models, datasets, and demos. Use `huggingf
 - `model-registry` — versioning and tracking published artifacts.
 - `dataset-versioning` — dataset revisions, splits, and reproducibility.
 - `llm-inference` / `vllm` — serving a downloaded model.
-- `secret-management` — handling `HF_TOKEN` without leaking it.
+- `env-secrets-management` — handling `HF_TOKEN` without leaking it.

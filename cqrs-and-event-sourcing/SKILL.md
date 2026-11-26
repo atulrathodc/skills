@@ -24,5 +24,5 @@ CQRS is simple and broadly useful; Event Sourcing is powerful in audit-heavy dom
 - `ddd-tactical-modeling` — write-side aggregate boundaries and invariants.
 - `ddd-domain-events-and-sagas` — event naming, outbox dispatch, and sagas.
 - `hexagonal-and-clean-architecture` — isolating event store and projection adapters.
-- `database-performance` — indexing read projections and append-only event tables.
+- `sql-query-optimization` — indexing read projections and append-only event tables.
 - `webhooks-and-events` — checkpointed, idempotent stream consumption.

@@ -8,7 +8,7 @@ allowed-tools: Bash, Read, Grep, Glob, Edit, Write, browser
 
 The browser is the only place a frontend bug is real. Source code that looks correct and a page that
 misbehaves means your model of the runtime is wrong — so **observe the runtime** instead of re-reading the code.
-This is the diagnose half; `browser-verification` is the prove-it-works half, and `systematic-debugging` is the generic method.
+This is the diagnose half; `browser-verification` is the prove-it-works half, and `root-cause-debugging` is the generic method.
 
 ## Start with evidence, not hypotheses
 
@@ -50,7 +50,7 @@ This is the diagnose half; `browser-verification` is the prove-it-works half, an
 ## Related skills
 - `browser-verification` — the proof loop to run once the bug is fixed.
 - `browser-network-debugging` — for any failure that is a request, response, CORS, cookie, or cache problem.
-- `systematic-debugging` — the general reproduce → isolate → root-cause → verify method.
+- `root-cause-debugging` — the general reproduce → isolate → root-cause → verify method.
 - `mobile-app-debugging` — the same discipline for native/RN/Flutter rather than the web.
 - `runtime-crash-recovery` / `startup-failure-recovery` — when the app or server itself dies.
 - `react-frontend` / `next-js-app` — framework-specific mounting, hydration, and HMR behavior.

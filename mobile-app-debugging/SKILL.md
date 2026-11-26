@@ -24,7 +24,7 @@ Mobile bugs are hard because the failure is on a device you cannot see. Get the 
 
 ## Related skills
 
-- `systematic-debugging` / `test-failure-analysis` — the general method this skill specializes.
+- `root-cause-debugging` / `test-failure-analysis` — the general method this skill specializes.
 - `ios-app` / `android-app` / `flutter-app` / `react-native-verification` — platform-specific tooling.
 - `mobile-store-release` — where production crash reports and their mapping files come from.
 - `observability` — capturing the logs you will wish you had.

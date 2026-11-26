@@ -25,4 +25,4 @@ Electron and Tauri pair a web UI with a privileged native host process. Most bug
 - `react-frontend` — building the renderer UI cleanly.
 - `rust-systems` — writing the Tauri Rust backend cleanly.
 - `runtime-verification` — launching and verifying the packaged desktop binary.
-- `secret-management` — storing signing certificates and notarization credentials.
+- `env-secrets-management` — storing signing certificates and notarization credentials.
